@@ -17,6 +17,10 @@ function App() {
         >
           Learn React
         </a>
+        <p>
+          Copyright Baraka 2023.
+          Tous droits réservés.
+        </p>
       </header>
     </div>
   );

@@ -17,8 +17,8 @@ function App() {
         >
           Learn React
         </a>
-        <p>
-          Copyright Baraka 2023.
+        <p className='bg-danger'>
+          Copyright BarakaKinywa 2023.
           Tous droits réservés.
         </p>
       </header>

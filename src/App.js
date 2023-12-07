@@ -1,27 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+
 
 function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("https://rickandmortyapi.com/api/character/")
+      .then((res) => res.json())
+      .then((data) => setData(data.results));
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <p className='bg-danger'>
-          Copyright BarakaKinywa 2023.
-          Tous droits réservés.
-        </p>
-      </header>
+    <div className='container-fluid row bg-secondary'>
+      {data.map((character) => (
+          <p key={character.id} style={{ width: "18rem", margin: "0.5rem" }}>
+            <img src={character.image} className="" alt="logo" /> <br/>
+            <span className='text-white'>{character.name}</span><br/>
+            <span className='text-white'>{character.species}</span><br/>
+            <a  class="btn btn-primary btn-sm" href={character.url} target="_blank">
+              More Info
+            </a>
+         </p>
+      ))}
     </div>
   );
 }
